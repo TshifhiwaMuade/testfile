@@ -20,7 +20,7 @@ export class BodyComponent implements OnInit{
   ){
 
   }
-  ngOnInit(){
+  ngOnInit() : void{
     // this.userForm = this.fb.group({ 
     //   userName : ['',Validators.required] ,
     //   password : ['',Validators.required]
