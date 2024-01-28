@@ -9,5 +9,10 @@ import { navbarData } from './nav-data';
 export class SidenavComponent {
   collapsed = false;
   navData = navbarData;
-
+  toggleCollapse(): void{
+    this.collapsed = !this.collapsed;
+  }
+closesSidenav(): void{
+    this.collapsed = false;
+}
 }
