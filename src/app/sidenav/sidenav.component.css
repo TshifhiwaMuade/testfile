@@ -30,7 +30,15 @@
    }
    .logo-text{
     display: flex;
+    margin-left: 1.5rem;
+    font-size: 24px;
+    color: #fff;
    }
    .btn-close{
     display: flex;
+    margin-left: auto;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background-color: transparent;
    }
