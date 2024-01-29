@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="body">
 
     <div id="login">
@@ -21,16 +21,20 @@
                            <div class="form-group">
                                <label for="remember-me" class="text-info">Remember me</label><input id="remember-me" name="remember-me" type="checkbox"><br>
                                 <a href="#" class="text-info">Register here</a><br>
-                                <!-- <input type="submit" name="submit" class="btn btn-info btn-md" value="submit" onsubmit="onSubmit()"> -->
-                                <button type="submit" class="btn btn-success btn-md"  >Submit</button>
-                           </div>
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit" onsubmit="onSubmit()">
+                                 <button type="submit" class="btn btn-success btn-md"  >Submit</button>
+                           </div> -->
                                
                            
-                       </form>
+                       <!-- </form>
                    </div>
                </div>
            </div>
        </div>
    </div>
    
-   </div>
+   </div> --> 
+   <div class="body" [ngClass]="getBodyClass()">
+        <router-outlet></router-outlet>
+    </div>
+

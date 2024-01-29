@@ -14,6 +14,7 @@ export class AppComponent {
   title = 'loginForm2';
   isSideNavCollapsed = false;
   screenWidth = 0;
+  
   onToggleSideNav(data:SideNavToggle): void{
       this.screenWidth = data.screenWidth;
       this.isSideNavCollapsed = data.collapsed;
