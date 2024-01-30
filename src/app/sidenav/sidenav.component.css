@@ -10,8 +10,9 @@
     box-shadow: 0.063rem 0 1.25rem 0 #8690a3 ;
     
 }
+
 .logo-container{
-    display: flex;
+   display: flex;
    align-items: center;
    padding: 0.938rem 0.938rem 0.938rem;
    width: 100%;
@@ -53,7 +54,7 @@
 
    .sidenav-collapse{
     width: 16.5625rem;
-
+    background: #263238;
    }
   
    .sidenav-nav-item{
@@ -65,6 +66,7 @@
    }
    .sidenav-nav-link{
     width: 100%;
+    margin-left: 0.5rem;
     margin-bottom: 0.625rem;
     background-color: none;
     display: flex;
