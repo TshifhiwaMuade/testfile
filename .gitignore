@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 admin/
 test-repo/
+.vscode
