@@ -25,17 +25,5 @@ export class BodyComponent {
     }
     return styleClass;
   }
-  // constructor(
-  //   private fb: UntypedFormBuilder
-  // ){
-
-  // }
-  // ngOnInit() : void{
-  //   // this.userForm = this.fb.group({ 
-  //   //   userName : ['',Validators.required] ,
-  //   //   password : ['',Validators.required]
-  //   //  });
-    
-    
-  // }
+  
 }

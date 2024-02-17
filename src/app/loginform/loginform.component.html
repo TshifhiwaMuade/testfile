@@ -1,0 +1,17 @@
+
+    <div class="container">
+             <div class="image_container">
+                <img src="/assets/undraw_drink_coffee_v3au.svg">
+             </div>
+             <div id="form-container" [formGroup]="form">
+                <form class="login-form">
+                    <h1>Login</h1>
+                    <label for="username" >Username</label><br><br>
+                    <input type="text" formControlName = "userName" placeholder="Username"><br><br>
+                    <label for="password" >Password</label><br><br>
+                    <input type="password" formControlName = "passWord"  placeholder="Password"><br><br>
+                    <br>
+                    <button (click)="login()" [disabled]="!form.valid">login</button>
+                </form>    
+                </div>
+    </div>

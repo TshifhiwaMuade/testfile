@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter, OnInit, HostListener } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { navbarData } from './nav-data';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 
@@ -39,16 +40,22 @@ export class SidenavComponent implements OnInit {
 
   navData = navbarData;
 
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
-    this.screenWidth = window.innerWidth;
-    if (this.screenWidth <= 768) {
-      this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
+    if (isPlatformBrowser(this.platformId)) {
+      this.screenWidth = window.innerWidth;
+      if (this.screenWidth <= 768) {
+        this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
+      }
     }
   }
 
   ngOnInit(): void {
-    this.screenWidth = window.innerWidth;
+    if (isPlatformBrowser(this.platformId)) {
+      this.screenWidth = window.innerWidth;
+    }
   }
 
   toggleCollapse(): void {

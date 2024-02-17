@@ -7,9 +7,11 @@ import { CoupensComponent } from './coupens/coupens.component';
 import { PagesComponent } from './pages/pages.component';
 import { MediaComponent } from './media/media.component';
 import { SettingsComponent } from './settings/settings.component';
+import { LoginformComponent } from './loginform/loginform.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: 'loginform', pathMatch: 'full'},
+  {path: 'loginform' , component: LoginformComponent},
   {path: 'dashboard' , component: DashboardComponent},
   {path: 'products' , component: ProductsComponent},
   {path: 'statistics' , component: StatisticsComponent},
