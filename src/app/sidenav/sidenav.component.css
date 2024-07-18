@@ -1,13 +1,28 @@
 
+
+.topnav {
+ 
+  text-align: center;
+  color: #fff;
+  height: fit-content;
+  font-size: 2rem;
+  overflow: hidden;
+  background-color:  #236485;
+ 
+}
+.span{
+  padding: 5px;
+}
+
 .sidenav{
-    background: #263238;
+    background: #236485;
     transition: all .5s ease;
     position: fixed;
     z-index: 1;
     top: 0;
     width: 5rem;
     height: 100vh;
-    box-shadow: 0.063rem 0 1.25rem 0 #8690a3 ;
+  
     
 }
 
@@ -56,7 +71,7 @@
 
    .sidenav-collapse{
     width: 16.5625rem;
-    background: #263238;
+    background:#236485 ;
    }
   
    .sidenav-nav-item{

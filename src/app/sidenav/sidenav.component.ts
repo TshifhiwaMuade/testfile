@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, Output, EventEmitter, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { navbarData } from './nav-data';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
@@ -16,7 +16,7 @@ interface SideNavToggle {
     trigger('fadeInOut', [
       transition(':enter', [
         style({ opacity: 0 }),
-        animate('350ms', style({ opacity: 1 }))
+        animate('350ms', style({ opacity: 1 })) // Fixed missing closing parenthesis
       ]),
       transition(':leave', [
         style({ opacity: 1 }),
@@ -33,15 +33,30 @@ interface SideNavToggle {
     ])
   ]
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  loggedUser: any;
+ 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
-  screenWidth = 0;
-
+  screenWidth: number = 0; // Consider using const
   navData = navbarData;
+ 
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+ 
+  constructor(@Inject(PLATFORM_ID) private platformId: object ) {
+    const localUser = localStorage.getItem('loggedUser');
+    if(localUser !=null){
+      this.loggedUser = JSON.parse(localUser);
+    }
+  }
 
+  // onLogoff() {
+  //   localStorage.removeItem('loggedUser');
+  //   this.router.navigateByUrl('/login')
+  // }
+
+  
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     if (isPlatformBrowser(this.platformId)) {
@@ -49,6 +64,8 @@ export class SidenavComponent implements OnInit {
       if (this.screenWidth <= 768) {
         this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
       }
+    } else {
+      // Handle server-side logic if applicable
     }
   }
 
@@ -63,8 +80,9 @@ export class SidenavComponent implements OnInit {
     this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
   }
 
-  closesSidenav(): void {
+  closesidenav(): void { 
     this.collapsed = false;
     this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
   }
+
 }

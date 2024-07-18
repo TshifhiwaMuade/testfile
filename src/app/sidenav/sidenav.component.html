@@ -1,8 +1,19 @@
+<head>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<div class="topnav">
+    
+    <i class="fa fa-user-circle-o" aria-hidden="true">{{loggedUser?.email}} </i>
+   
+   <!-- <button class="btn btn-primary" type="button" (click)="onLogoff()">Logoff</button> -->
+  </div>
 <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
     <div class="logo-container">
         <button class="logo" (click)="toggleCollapse()">A</button>
         <div class="logo-text" @fadeInOut *ngIf="collapsed">Angular</div>
-        <button class="btn-close" @rotate *ngIf="collapsed" (click)="closesSidenav()">
+        <button class="btn-close" @rotate *ngIf="collapsed" (click)="closesidenav()">
             <i class="fal fa-times close-icon"></i>
         </button>
     </div>
@@ -18,4 +29,11 @@
             </a>
         </li>
     </ul>
+</div>
+<div class="card">
+   <div class="card-head">
+        <div class="card-body">
+            <router-outlet></router-outlet>
+        </div>
+   </div>
 </div>

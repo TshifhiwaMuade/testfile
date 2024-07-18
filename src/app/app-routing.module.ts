@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { SidenavComponent } from './sidenav/sidenav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductsComponent } from './products/products.component';
 import { StatisticsComponent } from './statistics/statistics.component';
@@ -9,20 +10,29 @@ import { MediaComponent } from './media/media.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LoginformComponent } from './loginform/loginform.component';
 
+
 const routes: Routes = [
-  {path: '', redirectTo: 'loginform', pathMatch: 'full'},
-  {path: 'loginform' , component: LoginformComponent},
-  {path: 'dashboard' , component: DashboardComponent},
-  {path: 'products' , component: ProductsComponent},
-  {path: 'statistics' , component: StatisticsComponent},
-  {path: 'coupens' , component: CoupensComponent},
-  {path: 'pages' , component: PagesComponent},
-  {path: 'media' , component: MediaComponent},
-  {path: 'settings' , component: SettingsComponent}
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: LoginformComponent },
+  
+  {
+    path: 'sidenav',
+    component: SidenavComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'products', component: ProductsComponent },
+      { path: 'statistics', component: StatisticsComponent },
+      { path: 'coupens', component: CoupensComponent },
+      { path: 'pages', component: PagesComponent },
+      { path: 'media', component: MediaComponent },
+      { path: 'settings', component: SettingsComponent }
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

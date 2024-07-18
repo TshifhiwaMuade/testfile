@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { Router } from '@angular/router'; // Correct import statement for Router
 
 @Component({
@@ -9,20 +8,68 @@ import { Router } from '@angular/router'; // Correct import statement for Router
   styleUrls: ['./loginform.component.css']
 })
 export class LoginformComponent {
-  form: FormGroup = this.fb.group({
-    userName: ['', Validators.required],
-    passWord: ['', Validators.required],
-  });
+  isSignDivVisiable: boolean  = true;
 
-  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {}
+  signUpObj: SignUpModel  = new SignUpModel();
+  loginObj: LoginModel  = new LoginModel();
 
-  login() {
-    let user = this.authService.login(this.form.value.userName, this.form.value.passWord);
-
-    if (!user) {
-      alert('Invalid username or password');
+  onRegister(){
+    // debugger;
+    const localUser = localStorage.getItem('portalusers');
+    if(localUser != null) {
+      const users =  JSON.parse(localUser);
+      users.push(this.signUpObj);
+      localStorage.setItem('portalusers', JSON.stringify(users))
     } else {
-      this.router.navigateByUrl('/dashboard');
+      const users = [];
+      users.push(this.signUpObj);
+      localStorage.setItem('portalusers', JSON.stringify(users))
     }
+    alert('Registration Success')
+  }
+
+
+
+  constructor( private router: Router) {}
+
+  onLogin() {
+    // debugger;
+    const localUsers = localStorage.getItem('portalusers');
+    if(localUsers != null) {
+      const users = JSON.parse(localUsers);
+
+      const isUserPresent = users.find((user:SignUpModel)=> user.email== this.loginObj.email && user.password == this.loginObj.password);
+      if(isUserPresent != undefined){
+        alert("User found...");
+        localStorage.setItem('loggedUser', JSON.stringify(isUserPresent));
+        this.router.navigateByUrl('/sidenav');
+      }
+      else{
+        alert("No user found")
+      }
+    }
+
+  }
+  
+}
+export class SignUpModel  {
+  name: string;
+  email: string;
+  password: string;
+
+  constructor() {
+    this.email = "";
+    this.name = "";
+    this.password= ""
+  }
+}
+
+export class LoginModel  { 
+  email: string;
+  password: string;
+
+  constructor() {
+    this.email = ""; 
+    this.password= ""
   }
 }

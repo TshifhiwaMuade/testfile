@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -17,7 +18,7 @@ export class AuthService {
 
   login(userName: string, passWord: string) {
     
-    let user = this.users.find((u) => u.userName === userName && u.passWord === passWord);
+    const user = this.users.find((u) => u.userName === userName && u.passWord === passWord);
     if (user) {
       this.session = user;
       localStorage.setItem('session', JSON.stringify(this.session));

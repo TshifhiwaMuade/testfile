@@ -13,8 +13,9 @@ import { PagesComponent } from './pages/pages.component';
 import { MediaComponent } from './media/media.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LoginformComponent } from './loginform/loginform.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
@@ -28,18 +29,22 @@ import { RouterModule } from '@angular/router';
     PagesComponent,
     MediaComponent,
     SettingsComponent,
-    LoginformComponent
+    LoginformComponent,
+
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration()
+    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[AppRoutingModule,RouterModule]
 })
 export class AppModule { }
