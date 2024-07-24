@@ -1,17 +1,24 @@
-<h1>PRODUCTS</h1>
-<div class="card">
-    <div class="card-head">
-        Lorem ipsum - products 1
-    </div>
-    <div class="card-body">
-       Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio iure dolor inventore aliquid illo tempora eligendi nobis dolorem facilis assumenda voluptas, numquam ex ut culpa dignissimos voluptatum ipsa delectus hic. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non culpa sequi delectus quas. Hic eveniet ullam sapiente est magni qui error ex sed aliquam quisquam, iure eius, dolorem velit minus!
-    </div>
-</div>
-<div class="card">
-    <div class="card-head">
-        Lorem ipsum - products 2
-    </div>
-    <div class="card-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non culpa sequi delectus quas. Hic Lorem ipsum dolor, sit amet consectetur adipisicing elit. Incidunt minima nisi, voluptates, nihil quisquam numquam cupiditate optio aut aliquid similique expedita maiores eum quasi sequi, rem aperiam repellendus saepe reprehenderit?eveniet ullam sapiente est magni qui error ex sed aliquam quisquam, iure eius, dolorem velit minus!
-    </div>
+<h1 style="color: navy">Clients</h1>
+
+<div style="max-height: 400px; overflow-y: auto; border: 1px solid #ddd; border-radius: 4px;">
+  <table style="min-width: 50rem; border-collapse: collapse; width: 100%;">
+    <thead style="background-color: #f2f2f2; position: sticky; top: 0; z-index: 1;">
+      <tr>
+        <th style="border: 1px solid #ddd; padding: 8px;">First Name</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Last Name</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Age</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Employment Status</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of tableData" style="border: 1px solid #ddd; padding: 8px;">
+        <td style="border: 1px solid #ddd; padding: 8px;">{{ person.firstname }}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">{{ person.lastname }}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">{{ person.age }}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">{{ person.employmentStatus }}</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">{{ person.city }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

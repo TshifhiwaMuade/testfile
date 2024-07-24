@@ -6,7 +6,7 @@ export const navbarData =   [
 },
 {
     routelink: 'products',
-    icon: 'fal fa-box-open',
+    icon: 'fa fa-user-o',
     label:'Products'
 },
 {

@@ -15,7 +15,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,9 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    TableModule, 
+
   ],
   providers: [
     provideClientHydration()
