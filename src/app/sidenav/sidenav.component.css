@@ -1,115 +1,154 @@
+/* Base sidenav styles with improved shadow and background */
+.sidenav {
+  background: linear-gradient(180deg, #236485 0%, #1a4d68 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  width: 5rem;
+  height: 100vh;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 
+/* Improved collapsed state with smooth transition */
+.sidenav-collapsed {
+  width: 16.5625rem;
+  box-shadow: 6px 0 15px rgba(0, 0, 0, 0.15);
+}
 
-.topnav {
- 
-  text-align: center;
-  color: #fff;
-  height: fit-content;
-  font-size: 2rem;
+/* Enhanced logo container with better spacing */
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 1rem;
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1rem;
+}
+
+/* Modern logo design */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  width: 3rem;
+  height: 3rem;
+  min-width: 3rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo:hover {
+  transform: translateY(-1px);
+  background: #ffffff;
+}
+
+.logo:active {
+  transform: translateY(1px);
+}
+
+/* Improved logo text with better visibility */
+.logo-text {
+  display: flex;
+  margin-left: 1.5rem;
+  font-size: 1.25rem;
+  color: #ffffff;
+  font-weight: 600;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+}
+
+/* Enhanced navigation items */
+.sidenav-nav-item {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0 0.75rem;
+}
+
+/* Modern navigation links with improved hover effects */
+.sidenav-nav-link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
+  padding: 0 0.75rem;
+  position: relative;
   overflow: hidden;
-  background-color:  #236485;
- 
-}
-.span{
-  padding: 5px;
 }
 
-.sidenav{
-    background: #236485;
-    transition: all .5s ease;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    width: 5rem;
-    height: 100vh;
+.sidenav-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: translateX(2px);
+}
+
+.sidenav-nav-link.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Enhanced link icon */
+.sidenav-link-icon {
+  font-size: 1.25rem;
+  width: 2rem;
+  min-width: 2rem;
+  margin-right: 0.75rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.sidenav-nav-link:hover .sidenav-link-icon {
+  transform: scale(1.1);
+}
+
+/* Enhanced link text */
+.sidenav-link-text {
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Scrollbar styling */
+.sidenav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidenav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidenav::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+/* Optional: Add responsive adjustments */
+@media (max-width: 768px) {
+  .sidenav {
+    width: 4rem;
+  }
   
-    
-}
-
-.logo-container{
-   display: flex;
-   align-items: center;
-   padding: 0.938rem 0.938rem 0.938rem;
-   width: 100%;
-   text-align: center;
-
-
-}
-.logo{
-    display: flex;
-    background: #fff;
-    width: 3rem;
-    align-items: center;
-    min-width: 3rem;
-    border-radius: 0.313rem;
-    padding:  0.38rem 0.38rem 0.38rem;
-    font-size: 24px ;
-    font-weight: 900;
-    cursor: pointer;
-    border: none;
-   }
-   .logo-text{
-    display: flex;
-    margin-left: 2.5rem;
-    font-size: 24px;
-    color: #fff;
-   }
-   .btn-close{
-    display: flex;
-    margin-left: 3rem;
-    cursor: pointer;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    background-color: transparent;
-    border: none;
-   }
-   .fa-times{
-    color: #fff;
-    font-size: 24px;
-   }
-
-   .sidenav-collapse{
-    width: 16.5625rem;
-    background:#236485 ;
-   }
+  .sidenav-collapsed {
+    width: 15rem;
+  }
   
-   .sidenav-nav-item{
-    background-color: none;
-    width: 100%;
-    margin-bottom: 0.625rem;
-
-
-   }
-   .sidenav-nav-link{
-    width: 100%;
-    margin-left: 0.5rem;
-    margin-bottom: 0.625rem;
-    background-color: none;
-    display: flex;
-    align-items: center;
-    height: 3rem;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 0.625rem;
-    transition: color .3s ease;
-    
-   }
-   .sidenav-link-icon{
-    font-size: 22px;
-    width: 2rem;
-    min-width: 2rem;
-    margin: 0 0.9rem;
-    text-align: center;
-   }
-   .sidenav-link-text{
-    margin-left: 1.5rem;
-    
-
-   }
-   .sidenav-nav-link:hover{
-     background-color: #fff;
-     color: #000;
-     width: 4rem;
-     border-radius: 0.625rem;
-   }
+  .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+  }
+}

@@ -1,2 +1,134 @@
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
+/* Container styles */
+.clients-container {
+    padding: 1.5rem;
+  }
+  
+  .clients-title {
+    color: #236485;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  .clients-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #236485;
+    border-radius: 2px;
+  }
+  
+  /* Table container */
+  .table-container {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Scrollbar styling */
+  .table-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: #c5c5c5;
+    border-radius: 4px;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+  
+  /* Table styles */
+  .data-table {
+    min-width: 50rem;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  /* Header styles */
+  .data-table thead {
+    background-color: #f8fafc;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .data-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: #475569;
+    border-bottom: 2px solid #e2e8f0;
+    white-space: nowrap;
+  }
+  
+  /* Body styles */
+  .data-table td {
+    padding: 0.875rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+  }
+  
+  .data-table tbody tr:hover {
+    background-color: #f8fafc;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Status badge styles */
+  .status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-transform: capitalize;
+  }
+  
+  .status-badge.employed {
+    background-color: #dcfce7;
+    color: #166534;
+  }
+  
+  .status-badge.unemployed {
+    background-color: #fee2e2;
+    color: #991b1b;
+  }
+  
+  .status-badge.student {
+    background-color: #e0f2fe;
+    color: #075985;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .clients-container {
+      padding: 1rem;
+    }
+    
+    .clients-title {
+      font-size: 1.5rem;
+    }
+    
+    .table-container {
+      border-radius: 6px;
+    }
+    
+    .data-table td, 
+    .data-table th {
+      padding: 0.75rem;
+    }
+  }

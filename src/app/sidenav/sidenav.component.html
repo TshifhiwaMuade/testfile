@@ -3,11 +3,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
-<div class="topnav">
-    
-    <i class="fa fa-user-circle-o" aria-hidden="true">{{loggedUser?.email}} </i>
-   
-   <!-- <button class="btn btn-primary" type="button" (click)="onLogoff()">Logoff</button> -->
+<div class="topnav"> 
+
   </div>
 <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
     <div class="logo-container">
@@ -32,8 +29,11 @@
 </div>
 <div class="card">
    <div class="card-head">
+   
         <div class="card-body">
+            <i class="fa fa-user-circle-o" aria-hidden="true">{{loggedUser?.email}} </i>
             <router-outlet></router-outlet>
         </div>
    </div>
 </div>
+<!-- <app-sidenav (onToggleSideNav)="handleSidenavToggle($event)"></app-sidenav> -->

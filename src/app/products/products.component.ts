@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { TableModule } from 'primeng/table';
+import { Component, OnInit } from '@angular/core';
 interface People{
   firstname?: string;
   lastname?: string;

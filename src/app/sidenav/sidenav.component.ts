@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, HostListener, Inject, PLATFORM_ID } fr
 import { isPlatformBrowser } from '@angular/common';
 import { navbarData } from './nav-data';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -50,13 +51,6 @@ export class SidenavComponent {
       this.loggedUser = JSON.parse(localUser);
     }
   }
-
-  // onLogoff() {
-  //   localStorage.removeItem('loggedUser');
-  //   this.router.navigateByUrl('/login')
-  // }
-
-  
   @HostListener('window:resize', ['$event'])
   onResize(event: Event) {
     if (isPlatformBrowser(this.platformId)) {
@@ -76,13 +70,19 @@ export class SidenavComponent {
   }
 
   toggleCollapse(): void {
+    console.log('Toggle clicked, current state:', this.collapsed);
     this.collapsed = !this.collapsed;
+    console.log('New state:', this.collapsed);
     this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
-  }
-
+}
   closesidenav(): void { 
     this.collapsed = false;
     this.onToggleSideNav.emit({ collapsed: this.collapsed, screenWidth: this.screenWidth });
   }
+
+  handleSidenavToggle(data: SideNavToggle) {
+    console.log('Sidenav toggled:', data);
+    // Handle the toggle event
+}
 
 }

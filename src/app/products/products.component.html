@@ -1,24 +1,30 @@
-<h1 style="color: navy">Clients</h1>
-
-<div style="max-height: 400px; overflow-y: auto; border: 1px solid #ddd; border-radius: 4px;">
-  <table style="min-width: 50rem; border-collapse: collapse; width: 100%;">
-    <thead style="background-color: #f2f2f2; position: sticky; top: 0; z-index: 1;">
-      <tr>
-        <th style="border: 1px solid #ddd; padding: 8px;">First Name</th>
-        <th style="border: 1px solid #ddd; padding: 8px;">Last Name</th>
-        <th style="border: 1px solid #ddd; padding: 8px;">Age</th>
-        <th style="border: 1px solid #ddd; padding: 8px;">Employment Status</th>
-        <th style="border: 1px solid #ddd; padding: 8px;">City</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let person of tableData" style="border: 1px solid #ddd; padding: 8px;">
-        <td style="border: 1px solid #ddd; padding: 8px;">{{ person.firstname }}</td>
-        <td style="border: 1px solid #ddd; padding: 8px;">{{ person.lastname }}</td>
-        <td style="border: 1px solid #ddd; padding: 8px;">{{ person.age }}</td>
-        <td style="border: 1px solid #ddd; padding: 8px;">{{ person.employmentStatus }}</td>
-        <td style="border: 1px solid #ddd; padding: 8px;">{{ person.city }}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class="clients-container">
+  <h1 class="clients-title">Clients</h1>
+  
+  <div class="table-container">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Age</th>
+          <th>Employment Status</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of tableData">
+          <td>{{ person.firstname }}</td>
+          <td>{{ person.lastname }}</td>
+          <td>{{ person.age }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="person.employmentStatus?.toLowerCase()">
+              {{ person.employmentStatus }}
+            </span>
+          </td>
+          <td>{{ person.city }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
